@@ -25,7 +25,13 @@ Route::get('/order/{id}', 'AdminController@show_order')->name('admin.showorder')
 Route::get('/user', 'AdminController@user')->name('admin.user')->middleware(['auth','admin']);
 
 Route::get('/admin-product', 'ProductController@list')->name('admin.product')->middleware(['auth','admin']);
-Route::get('/admin-profile', 'ProfilemarketController@list')->name('admin.profile')->middleware(['auth','admin']);
+//improve setting profile market
+Route::get('/admin-profile', 'ProfilemarketController@index')->name('admin.profile')->middleware(['auth','admin']);
+Route::get('/admin-profileedit', 'ProfilemarketController@edit')->name('admin.profileedit')->middleware(['auth','admin']);
+Route::post('/admin-profileupdate', 'ProfilemarketController@update')->name('admin.profileupdate')->middleware(['auth','admin']);
+
+//end
+
 
 Route::get('/admin-product/add', 'ProductController@form')->name('admin.addform')->middleware(['auth','admin']);
 Route::post('/admin-product/add', 'ProductController@create')->name('product.create')->middleware(['auth','admin']);
@@ -60,3 +66,23 @@ Route::get('/profile/{user}/edit','ProfileController@edit')->name('profile.edit'
 Route::patch('/profile/{user}','ProfileController@update')->name('profile.update')->middleware('auth');
 
 Auth::routes();
+
+Route::get('logo/{filename?}', function ($filename) {
+    $path = storage_path('app/public/profile/' . $filename);
+
+    $file = File::get($path);
+    $type = File::mimeType($path);
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+    return $response;
+})->name('logo');
+
+Route::get('favicon/{filename?}', function ($filename) {
+    $path = storage_path('app/public/favicon/' . $filename);
+
+    $file = File::get($path);
+    $type = File::mimeType($path);
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+    return $response;
+})->name('favicon');

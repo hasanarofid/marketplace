@@ -1,3 +1,7 @@
+@php
+use App\ProfileMarket;
+    $profile = ProfileMarket::find(1);
+@endphp
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -14,26 +18,21 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link rel="icon" href="{{ URL::asset('photo/box2.svg') }}" type="image/x-icon"/>
+    <link rel="icon" href="{{ !empty($profile->favicon) ?  Route('favicon', ['filename' => $profile->favicon]) : URL::asset('photo/box2.svg') }}" type="image/x-icon"/>
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="{{ asset('external-css/style.css') }}" rel="stylesheet">
 
 </head>
-@php
-use App\ProfileMarket;
-    $profile = ProfileMarket::find(1);
-    // dd($profile);
 
-@endphp
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">   
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <div class="d-flex">
-                        <div><img src="{{ asset('photo/box.svg') }}" style="height:50px;" alt=""></div>
+                        <div><img src="{{ !empty($profile->logo) ?  Route('logo', ['filename' => $profile->logo]) : asset('photo/box.svg') }}" style="height:50px;" alt=""></div>
                         <div class="pl-3 ml-3 pt-2" style="border-left:1px solid rgba(0, 0, 0, 0.5); font-size:1.5rem;">{{ !empty($profile->title) ?  $profile->title :  'MarketPlace' }}</div>
                     </div>
                 </a>

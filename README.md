@@ -46,3 +46,5 @@ $php artisan storage:link
 
 ### Progress fitur 9/7/2023
 * migrate - seed profile perusahan (done)
+* ubah profile perusahan (done)
+* ubah logo dan favicon perusahaan (done)

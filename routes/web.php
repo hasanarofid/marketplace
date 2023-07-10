@@ -37,6 +37,9 @@ Route::get('/admin-rekeningtambah', 'RekeningController@tambah')->name('admin.re
 Route::get('/admin-rekening/edit/{id}', 'RekeningController@edit')->name('admin.rekeningedit')->middleware(['auth','admin']);
 Route::get('/admin-rekening/disable/{id}', 'RekeningController@disable')->name('admin.disableedit')->middleware(['auth','admin']);
 Route::get('/admin-rekening/hapus/{id}', 'RekeningController@hapus')->name('admin.rekeninghapus')->middleware(['auth','admin']);
+Route::post('/admin-rekeningupdate', 'RekeningController@update')->name('admin.rekeningupdate')->middleware(['auth','admin']);
+Route::post('/admin-rekeningsave', 'RekeningController@save')->name('admin.rekeningsave')->middleware(['auth','admin']);
+
 //end
 
 Route::get('/admin-product/add', 'ProductController@form')->name('admin.addform')->middleware(['auth','admin']);

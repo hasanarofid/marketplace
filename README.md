@@ -51,5 +51,10 @@ $php artisan storage:link
 
 ### Progress fitur 10/7/2023
 * migrate - seed rekening perusahan (done)
-* CRUD rekening admin
-* rekening admin on order user
+* CRUD rekening admin (done)
+* rekening admin on order user (done)
+
+### Progress fitur 11/7/2023
+* Checkout - user
+* Dinamis Kategori - admin
+* Whatsapp fitur - user & admin

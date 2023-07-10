@@ -9,6 +9,15 @@
          
             <a href="{{ route('admin.rekeningtambah')    }}" class="btn btn-sm btn-info">TAMBAH REKENING</a>
         </div>
+          @if(Session::has('success'))
+    <div class="row">
+      <div class="col-12">
+        <div id="charge-message" class="alert alert-success">
+          {{ Session::get('success') }}
+        </div>
+      </div>
+    </div>
+    @endif
         <div class="card-body" style="width: 800px">
             <table class="table table-striped table-responsive">
                 <thead>
@@ -36,7 +45,7 @@
                     <td>{{ $item->status }}</td>
                     <td>
                      <a href="{{ route('admin.rekeningedit',['id'=>$item->id]) }}" class="btn btn-sm btn-success"> Edit</a> | 
-                     <a href="{{ route('admin.disableedit',['id'=>$item->id]) }}" class="btn btn-sm btn-danger"> Non Aktifkan </a> | 
+                     <a href="{{ route('admin.disableedit',['id'=>$item->id]) }}" class="btn btn-sm btn-danger"> {{ ($item->status == 'aktif') ? 'Non Aktifkan' : 'Aktifkan'   }}  </a> | 
                     <a href="{{ route('admin.rekeninghapus',['id'=>$item->id]) }}" class="btn btn-sm btn-warning"> Hapus</a>
                       </td>
                   </tr>

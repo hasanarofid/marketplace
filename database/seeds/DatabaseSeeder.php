@@ -17,6 +17,8 @@ class DatabaseSeeder extends Seeder
             ProductsTableSeeder::class,
             StocksTableSeeder::class,
             RemindersTableSeeder::class,
-            MarketplaceTableSeeder::class]);
+            MarketplaceTableSeeder::class,
+            RekeningTableSeeder::class
+            ]);
     }
 }

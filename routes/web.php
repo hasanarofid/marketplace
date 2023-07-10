@@ -29,9 +29,15 @@ Route::get('/admin-product', 'ProductController@list')->name('admin.product')->m
 Route::get('/admin-profile', 'ProfilemarketController@index')->name('admin.profile')->middleware(['auth','admin']);
 Route::get('/admin-profileedit', 'ProfilemarketController@edit')->name('admin.profileedit')->middleware(['auth','admin']);
 Route::post('/admin-profileupdate', 'ProfilemarketController@update')->name('admin.profileupdate')->middleware(['auth','admin']);
-
 //end
 
+//improve rekening
+Route::get('/admin-rekening', 'RekeningController@index')->name('admin.rekening')->middleware(['auth','admin']);
+Route::get('/admin-rekeningtambah', 'RekeningController@tambah')->name('admin.rekeningtambah')->middleware(['auth','admin']);
+Route::get('/admin-rekening/edit/{id}', 'RekeningController@edit')->name('admin.rekeningedit')->middleware(['auth','admin']);
+Route::get('/admin-rekening/disable/{id}', 'RekeningController@disable')->name('admin.disableedit')->middleware(['auth','admin']);
+Route::get('/admin-rekening/hapus/{id}', 'RekeningController@hapus')->name('admin.rekeninghapus')->middleware(['auth','admin']);
+//end
 
 Route::get('/admin-product/add', 'ProductController@form')->name('admin.addform')->middleware(['auth','admin']);
 Route::post('/admin-product/add', 'ProductController@create')->name('product.create')->middleware(['auth','admin']);

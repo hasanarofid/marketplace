@@ -106,6 +106,10 @@
                                   <a href="{{ route('admin.profile') }}" class="list-group-item admin-navigation">
                                         Setting 
                                 </a>
+
+                                <a href="{{ route('admin.rekening') }}" class="list-group-item admin-navigation">
+                                        Rekening 
+                                </a>
                             </ul>
                         </div>
                         

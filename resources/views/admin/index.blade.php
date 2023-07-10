@@ -75,7 +75,7 @@
                     <form method="POST" action="{{ route('admin.reminder') }}" enctype="multipart/form-data">
                         @method('PATCH')
                         @csrf
-                        <textarea name="reminder" id="" cols="27" rows="10">{{ $reminder->reminder ?? ''}}</textarea>
+                        <textarea name="reminder" id="" cols="22" rows="10">{{ $reminder->reminder ?? ''}}</textarea>
                         <button type="submit" class="button-primary w-100">UPDATE</button>
                     </form>
                 </div>

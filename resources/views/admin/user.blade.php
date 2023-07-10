@@ -8,7 +8,7 @@
             <h5>USER LIST</h5>
         </div>
         <div class="card-body">
-            <table class="table table-striped">
+            <table class="table table-striped table-responsive">
                 <thead>
                   <tr>
                     <th scope="col">ID</th>

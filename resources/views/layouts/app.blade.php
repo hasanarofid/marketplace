@@ -137,7 +137,7 @@ use App\ProfileMarket;
                     </div>
                     <div class='col-md-6 col-sm-12 copyright'>
                         {{-- <p>Pro</p> --}}
-                        <p>therack &copy; 2019. All Rights Reserved</p>
+                        <p>{{ !empty($profile->title) ?  $profile->title :  'Hasanarofid' }} &copy; <?= date('Y') ?>. All Rights Reserved</p>
                     </div>
                     <div class='col-md-6 col-sm-12 payment'> <img src="{{ asset('photo/cards.png') }}" alt=''>
                     </div>

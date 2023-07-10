@@ -9,6 +9,7 @@ use App\Cart;
 use App\Order;
 use App\Stock;
 use DB;
+use App\RekeningM;
 
 class CheckoutController extends Controller
 {
@@ -17,11 +18,13 @@ class CheckoutController extends Controller
         if(!Session::has('cart')){
             return view('cart.index');
         }
+        $rekening = RekeningM::where('status','aktif')->get();
+   
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
         $total = $cart->totalPrice;
         $user = Auth::user();
-        return view('checkout.index',compact('total','user'));
+        return view('checkout.index',compact('total','user','rekening'));
     }
 
     public function checkout(Request $request)

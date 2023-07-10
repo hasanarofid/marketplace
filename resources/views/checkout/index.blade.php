@@ -102,71 +102,23 @@
 
                     <div class="col-12">
                         <hr>
-                        <h5>BILLING ADDRESS</h5>
+                        <h5>Rekening kami </h5>
                     </div>
-                    
+            <div class="col-12">        
+                <div class="alert alert-success" role="alert">
+                    @foreach ($rekening as $item)
+                        <p>{{  $item->atas_nama  }}</p>
+                        <p class="right-side-header"  id="no_rekening" >{{  $item->no_rekening  }}  <a href="javascript: void(0)" onclick="copyToClipboard('no_rekening' )" id="clipboard_a"><i class="fa fa-clipboard"></i>    </a> </p>
+                          <p>{{  $item->bank  }}</p>
+                    @endforeach
+                </div>
 
-                    <div class="col-12">
-                        <label for="creditcardnumber" class="">{{ __('Credit Card Number') }}</label>
-                        <div class="form-group">
-                            <div>
-                                <input id="creditcardnumber" type="text" class="form-control @error('creditcardnumber') is-invalid @enderror" name="creditcardnumber" value="{{ old('creditcardnumber') }}" required autocomplete="creditcardnumber" autofocus>
-                                @error('creditcardnumber')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-6">
-                        <label for="expiremonth" class="">{{ __('Expiration Month') }}</label>
-                        <div class="form-group">
-                            <div>
-                                <input id="expiremonth" type="text" class="form-control @error('expiremonth') is-invalid @enderror" name="expiremonth" value="{{ old('expiremonth') }}" required autocomplete="expiremonth" autofocus>
-                                @error('expiremonth')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-6">
-                        <label for="expireyear" class="">{{ __('Expiration Year') }}</label>
-                        <div class="form-group">
-                            <div>
-                                <input id="expireyear" type="text" class="form-control @error('expireyear') is-invalid @enderror" name="expireyear" value="{{ old('expireyear') }}" required autocomplete="expireyear" autofocus>
-                                @error('expireyear')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
-
-                    
-                    <div class="col-12">
-                        <label for="cvc" class="">{{ __('CVC') }}</label>
-                        <div class="form-group">
-                            <div>
-                                <input id="cvc" type="text" class="form-control @error('cvc') is-invalid @enderror" name="cvc" value="{{ old('cvc') }}" required autocomplete="cvc" autofocus>
-                                @error('cvc')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                    </div>
+                </div>          
 
 
                 </div>
                 
-                <button type="submit" class="button-primary w-100">BUY NOW</button>
+                <button type="submit" class="button-primary w-100">Konfirmasi Pembayaran Anda</button>
             
             </form>
         </div>
@@ -174,3 +126,30 @@
 </div>
 
 @endsection
+
+
+    <script>
+  function copyToClipboard(elementId) {
+
+  // Create a "hidden" input
+  var aux = document.createElement("input");
+
+  // Assign it the value of the specified element
+  aux.setAttribute("value", document.getElementById(elementId).innerHTML);
+
+  // Append it to the body
+  document.body.appendChild(aux);
+
+  // Highlight its content
+  aux.select();
+
+  // Copy the highlighted text
+  document.execCommand("copy");
+
+  // Remove it from the body
+  document.body.removeChild(aux);
+   $("a#clipboard_a").attr('data-original-title', 'Copied');
+    // $("a#clipboard_a").tooltip('show');
+
+}
+    </script>

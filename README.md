@@ -50,4 +50,6 @@ $php artisan storage:link
 * ubah logo dan favicon perusahaan (done)
 
 ### Progress fitur 10/7/2023
-* migrate - seed rekening perusahan
+* migrate - seed rekening perusahan (done)
+* CRUD rekening admin
+* rekening admin on order user
